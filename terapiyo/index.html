@@ -70,6 +70,10 @@
         <a-asset-item id="terapiyo-mtl" src="./model_obj/terapiyo-20201002.mtl"></a-asset-item>
     </a-assets>
 　　<!-- こっからARの世界。マーカー上になにを展開するかを書く -->
+    <a-marker preset="hiro">
+        <a-obj-model id="terapiyo" src="#terapiyo-obj" mtl="#terapiyo-mtl" position="0 0 0" scale="0.03 0.03 0.03" rotation="0 -90 0"></a-obj-model>
+        <!-- <a-text value="TeraPiyo!" position="0 0 0.4" align="center" rotation="0 0 0"></a-text> -->
+    </a-marker>    
     <a-marker type='pattern' url="./marker/pattern-terapiy.patt">
         <a-obj-model id="terapiyo" src="#terapiyo-obj" mtl="#terapiyo-mtl" position="0 0 0" scale="0.03 0.03 0.03" rotation="0 -90 0"></a-obj-model>
         <!-- <a-text value="TeraPiyo!" position="0 0 0.4" align="center" rotation="0 0 0"></a-text> -->
