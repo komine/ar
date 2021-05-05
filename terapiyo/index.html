@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>てらぴよ AR とスナップショットを撮る</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -9,76 +9,75 @@
     
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-</head>
+  </head>
 
-<body style='margin: 0; overflow: hidden;'>
-<a-scene embedded arjs='debugUIEnabled:false;trackingMethod: best;' vr-mode-ui="enabled: false">
-    <a-marker preset="hiro">
+  <body style='margin: 0; overflow: hidden;'>
+    <a-scene embedded arjs='debugUIEnabled:false;trackingMethod: best;' vr-mode-ui="enabled: false">
+      <a-marker preset="hiro">
         <a-entity gltf-model="./model/terapiyo.gltf" position="0 0 0" scale="0.03 0.03 0.03" rotation="0 0 0"></a-entity>
         <!-- <a-text value="TeraPiyo!" position="0 0 0.4" align="center" rotation="0 0 0"></a-text> -->
-    </a-marker>    
-    <a-marker type='pattern' url="./marker/pattern-terapiyo.patt">
+      </a-marker>    
+      <a-marker type='pattern' url="./marker/pattern-terapiyo.patt">
         <a-entity gltf-model="./model/terapiyo.gltf" position="0 0 0" scale="0.03 0.03 0.03" rotation="0 0 0"></a-entity>
         <!-- <a-text value="TeraPiyo!" position="0 0 0.4" align="center" rotation="0 0 0"></a-text> -->
-    </a-marker>
-    <a-entity camera></a-entity>
-</a-scene>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
 
-<div class="ui">
-    <img id="snap">
-    <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><i class="material-icons">delete</i></a>
-    <a href="" id="take-photo" title="Take Photo"><i class="material-icons">photo_camera</i></a>
-    <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled" target="_blank"><i class="material-icons">file_download</i></a>
-</div>
-</body>
-<script>
-var image = document.querySelector('#snap');
-var take_photo_btn = document.querySelector('#take-photo');
-var delete_photo_btn = document.querySelector('#delete-photo');
-var download_photo_btn = document.querySelector('#download-photo');
+    <div class="ui">
+      <img id="snap">
+      <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><i class="material-icons">delete</i></a>
+      <a href="" id="take-photo" title="Take Photo"><i class="material-icons">photo_camera</i></a>
+      <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled" target="_blank"><i class="material-icons">file_download</i></a>
+    </div>
+  </body>
+  <script>
+    var image = document.querySelector('#snap');
+    var take_photo_btn = document.querySelector('#take-photo');
+    var delete_photo_btn = document.querySelector('#delete-photo');
+    var download_photo_btn = document.querySelector('#download-photo');
 
-//スナップショットボタン
-take_photo_btn.addEventListener("click", function (e) {
-    e.preventDefault();
-    var video = document.querySelector('video');
-    var snap = takeSnapshot(video);
+    //スナップショットボタン
+    take_photo_btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      var video = document.querySelector('video');
+      var snap = takeSnapshot(video);
 
-    //スナップショット表示.
-    image.setAttribute('src', snap);
-    image.classList.add('visible');
+      //スナップショット表示.
+      image.setAttribute('src', snap);
+      image.classList.add('visible');
 
-    // 削除ボタンと保存ボタン有効
-    delete_photo_btn.classList.remove("disabled");
-    download_photo_btn.classList.remove("disabled");
+      // 削除ボタンと保存ボタン有効
+      delete_photo_btn.classList.remove("disabled");
+      download_photo_btn.classList.remove("disabled");
 
-    // 保存ボタンにスナップショットを渡す
-    download_photo_btn.href = snap;
-});
+      // 保存ボタンにスナップショットを渡す
+      download_photo_btn.href = snap;
+    });
 
-//削除ボタン
-delete_photo_btn.addEventListener("click", function(e){
+    //削除ボタン
+    delete_photo_btn.addEventListener("click", function(e){
+      e.preventDefault();
 
-    e.preventDefault();
+      // スナップショットを隠す
+      image.setAttribute('src', "");
+      image.classList.remove("visible");
 
-    // スナップショットを隠す
-    image.setAttribute('src', "");
-    image.classList.remove("visible");
+      // 削除ボタンと保存ボタン無効
+      delete_photo_btn.classList.add("disabled");
+      download_photo_btn.classList.add("disabled");
 
-    // 削除ボタンと保存ボタン無効
-    delete_photo_btn.classList.add("disabled");
-    download_photo_btn.classList.add("disabled");
+    });
 
-});
+    //スナップショットを撮る
+    function takeSnapshot(video) {
+      var resizedCanvas = document.createElement("canvas");
+      var resizedContext = resizedCanvas.getContext("2d");
+      var width = video.videoWidth;
+      var height = video.videoHeight;
+      var aScene = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
 
-//スナップショットを撮る
-function takeSnapshot(video) {
-    var resizedCanvas = document.createElement("canvas");
-    var resizedContext = resizedCanvas.getContext("2d");
-    var width = video.videoWidth;
-    var height = video.videoHeight;
-    var aScene = document.querySelector("a-scene").components.screenshot.getCanvas("perspective");
-
-    if (width && height) {
+      if (width && height) {
         //videoのサイズをキャンバスにセット
         resizedCanvas.width = width;
         resizedCanvas.height = height;
@@ -87,17 +86,17 @@ function takeSnapshot(video) {
 
         //カメラの画角でar側の縮小処理を変える
         if (width > height) {
-            // 横長（PC)
-            resizedContext.drawImage(aScene, 0, 0, width, height);
+          // 横長（PC)
+          resizedContext.drawImage(aScene, 0, 0, width, height);
         } else {
-            // 縦長（スマホ）
-            var scale = height / width;
-            var scaledWidth = height * scale;
-            var marginLeft = (width - scaledWidth) / 2;
-            resizedContext.drawImage(aScene, marginLeft, 0, scaledWidth, height);
+          // 縦長（スマホ）
+          var scale = height / width;
+          var scaledWidth = height * scale;
+          var marginLeft = (width - scaledWidth) / 2;
+          resizedContext.drawImage(aScene, marginLeft, 0, scaledWidth, height);
         }
         return resizedCanvas.toDataURL('image/png');
+      }
     }
-}
-</script>
+  </script>
 </html>
