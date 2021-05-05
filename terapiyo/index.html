@@ -17,19 +17,20 @@
   <body>
     <a-scene embedded arjs='debugUIEnabled:false;trackingMethod: best;' vr-mode-ui="enabled: false"  gesture-detector id="scene">
 
-      <a-marker preset="hiro">
-        <a-entity gltf-model="./model/terapiyo.gltf" position="0 0 0" scale="0.03 0.03 0.03" rotation="0 0 0"></a-entity>
+      <a-marker preset="hiro" id="markerA"
+        raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
+        <a-entity id="model-terapiyo-00" gltf-model="./model/terapiyo.gltf"
+          position="0 0 0" scale="0.03 0.03 0.03" rotation="0 0 0"
+          class="clickable" gesture-handler>
+        </a-entity>
         <!-- <a-text value="TeraPiyo!" position="0 0 0.4" align="center" rotation="0 0 0"></a-text> -->
-      </a-marker>    
-      <!--<a-marker type='pattern' url="./marker/pattern-terapiyo.patt">
-        <a-entity gltf-model="./model/terapiyo.gltf" position="0 0 0" scale="0.03 0.03 0.03" rotation="0 0 0"></a-entity>
-      </a-marker> -->
+      </a-marker>
 
       <a-marker type='pattern' url="./marker/pattern-terapiyo.patt" id="marker-terapiyo"
         raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;">
-        <a-entity  id="model-terapiyo" gltf-model="./model/terapiyo.gltf"
+        <a-entity id="model-terapiyo-01" gltf-model="./model/terapiyo.gltf"
           position="0 0 0" scale="0.03 0.03 0.03" rotation="0 0 0"
-          class="clickable" gesture-handler >
+          class="clickable" gesture-handler>
         </a-entity>
         <!-- <a-text value="TeraPiyo!" position="0 0 0.4" align="center" rotation="0 0 0"></a-text> -->
       </a-marker>
