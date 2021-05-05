@@ -45,7 +45,13 @@
         },
         {
             "mesh" : 0,
-            "name" : "terapiyo-18-small-08-3DBulder-fixed-07"
+            "name" : "terapiyo-18-small-08-3DBulder-fixed-07",
+            "rotation" : [
+                0,
+                -0.7081055641174316,
+                0,
+                0.7061066031455994
+            ]
         }
     ],
     "materials" : [
