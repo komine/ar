@@ -6,6 +6,9 @@
 - 表示した てらぴよ3Dを指で回転したり二本指で拡大縮小ができる。
 - てらぴよ3Dとともに写真を撮ってダウンロードできる。
 
+[こちら](https://terao.yokohama/ar/terapiyo/) で試すことができます。
+https://terao.yokohama/ar/terapiyo/
+
 ### 利用イメージ
 ![](./README/usage-image.png)
 
