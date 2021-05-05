@@ -29,7 +29,8 @@ https://terao.yokohama/ar/terapiyo/
 
 ## 使用している3Dモデル
 
-こちらで公開しています。（方向などで若干手直ししています）
+[こちら](https://make.dmm.com/item/1239886/)で公開しています。（方向などで若干手直ししています）
+https://make.dmm.com/item/1239886/
 
 ## 参考文献
 
