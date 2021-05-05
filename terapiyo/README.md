@@ -35,4 +35,5 @@ https://terao.yokohama/ar/terapiyo/
 
 - [【AR.js入門】簡単にWebARで遊んでみた【A-Frame使うよ】](https://qiita.com/sakaryu/items/769a2a538baf7e4ee1c7?fbclid=IwAR2tRcrLUu5a5B6KY13qFANX1YI6Ep8f7Y_RLpKFAhYRzqBUaWRFlXmtZGY)
 - [A-FrameとAR.js - スナップショットを撮る](https://qiita.com/fumix/items/7b3372688514c233068d?fbclid=IwAR0eboQ_uPPhGtohp9e2luS9OosOYetm2PF6OLYGoROMfFqamMucC362rpM)
+- [オリジナルARマーカーを作る](https://qiita.com/suo-takefumi/items/5156bd009132bbd3a41a)
 - [Manipulate your 3D content with gestures in AR.js](https://medium.com/@fabiojcortes/manipulate-your-3d-content-with-gestures-in-ar-js-78da4c076607)
