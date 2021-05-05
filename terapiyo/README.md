@@ -10,6 +10,8 @@
 https://terao.yokohama/ar/terapiyo/
 
 ### 利用イメージ
+上記の URL をスマホのブラウザで開いて、以下のマーカーを映してください。てらぴよが現れます。
+
 ![](./README/usage-image.png)
 
 ## 使用するマーカー
@@ -24,6 +26,10 @@ https://terao.yokohama/ar/terapiyo/
 
 - iPhone 8 + Safari
 - Android については未確認
+
+## 使用している3Dモデル
+
+こちらで公開しています。（方向などで若干手直ししています）
 
 ## 参考文献
 
